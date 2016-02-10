@@ -70,13 +70,6 @@ const styles = this.props.location.action === 'POP'
 ```
 
 ### Nesting Transitions
-Currently, nesting transitions requires some extra logic as the transitions
-themselves are usually coupled to the pathname. The way around this is to
-set the `RouteTransition`'s `pathname` to the pathname of the _current, transitionable_
-route.
+Currently, nesting transitions requires some extra logic as the transitions themselves are usually coupled to the pathname. The way around this is to set the `RouteTransition`'s `pathname` to the pathname of the _current, transitionable_ route.
 
-This means that if you have a transition at the root level of your tree, the
-pathname for that `RouteTransition` should match the root-level route (e.g., `/route-a` or
-`/route-b`). Any subsequent, deeper `RouteTransition`s should refer to their
-own, specific paths as well (e.g. the pathnames for nested transitions within
-`/route-a` would appear as `/route-a/foo` or `/route-a/bar`.
+This means that if you have a transition at the root level of your tree, the pathname for that `RouteTransition` should match the root-level route (e.g. `/route-a` or `/route-b`). Any subsequent, deeper `RouteTransition`s should refer to their own, specific paths as well (e.g. the pathnames for nested transitions within `/route-a` would appear as `/route-a/foo` or `/route-a/bar`).
