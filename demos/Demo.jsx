@@ -23,7 +23,7 @@ const App = React.createClass({
           const isActive = this.context.router.isActive(path);
           return (
             <Link
-              to={path}
+              to={`/${path}`}
               key={path}
               className={isActive ? 'link active' : 'link'}
             >
