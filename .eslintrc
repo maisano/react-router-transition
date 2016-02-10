@@ -1,0 +1,12 @@
+{
+  "extends": "airbnb",
+
+  "plugins": [
+    "react"
+  ],
+
+  "rules": {
+    "comma-dangle": [2, "never"],
+    "react/prefer-es6-class": [1, "never"]
+  }
+}

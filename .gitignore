@@ -1,0 +1,7 @@
+.DS_Store
+*.swp
+
+lib
+/demos/**/index.js
+
+node_modules
