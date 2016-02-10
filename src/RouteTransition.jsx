@@ -28,6 +28,11 @@ const RouteTransition = React.createClass({
   // there's only ever one route mounted at a time,
   // so just return the current match
   getStyles() {
+    if (!this.props.children) {
+      return [];
+    }
+
+    // TODO: maybe access route path from children for pathname?
     return [{
       key: this.props.pathname,
       data: this.props.children,
@@ -44,10 +49,6 @@ const RouteTransition = React.createClass({
   },
 
   renderRoute(config) {
-    if (!config.data) {
-      return null;
-    }
-
     const props = {
       style: this.props.mapStyles(config.style),
       key: config.key
