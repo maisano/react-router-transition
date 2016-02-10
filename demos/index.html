@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+  <title>Fade</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    #app {
+      margin: 44px;
+    }
+
+    nav a {
+      padding: 8px 11px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #333;
+      display: inline-block;
+    }
+
+    nav a.active {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #fafafa;
+    }
+
+    .transition-wrapper {
+      position: relative;
+    }
+
+    .child-route {
+      display: inline-block;
+      padding: 11px;
+    }
+
+    .lorem {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+<div id="app"></div>
+<script src="./index.js"></script>
+</body>
+</html>
