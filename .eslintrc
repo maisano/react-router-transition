@@ -7,6 +7,9 @@
 
   "rules": {
     "comma-dangle": [2, "never"],
-    "react/prefer-es6-class": [1, "never"]
+    "react/prefer-es6-class": [1, "never"],
+    "react/prop-types": [1, {
+      ignore: ["children", "style", "className"]
+    }]
   }
 }
