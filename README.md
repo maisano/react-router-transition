@@ -43,14 +43,14 @@ An example of a transition that shifts the routes to the left:
 ```jsx
 <RouteTransition
   pathname={this.props.location.pathname}
-  atEnter: { translateX: 100 },
-  atLeave: { translateX: -100 },
-  atActive: { translateX: 0 },
-  mapStyles: (styles) => {
+  atEnter={{ translateX: 100 }},
+  atLeave={{ translateX: -100 }},
+  atActive={{ translateX: 0 }},
+  mapStyles={(styles) => {
     return {
       transform: `translateX(${styles.translateX}%)`
     };
-  }
+  }}
 >
   {this.props.children}
 </RouteTransition>
