@@ -2,7 +2,7 @@
   "name": "react-router-transition",
   "version": "0.0.1",
   "description": "A thin layer over react-motion for animating routes in react-router.",
-  "main": "lib/index.js",
+  "main": "lib/react-router-transition.js",
   "scripts": {
     "build": "webpack",
     "build:demos": "webpack --config webpack.demos.config.js",
