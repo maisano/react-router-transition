@@ -11,7 +11,8 @@ module.exports = {
     path: path.join(__dirname, 'lib'),
     filename: 'react-router-transition.js',
     sourceMapFilename: 'react-router-transition.map',
-    library: 'ReactRouterTransition'
+    library: 'ReactRouterTransition',
+    libraryTarget: 'umd'
   },
   module: {
     loaders: [{
