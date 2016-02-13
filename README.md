@@ -27,9 +27,9 @@ import { RouteTransition } from 'react-router-transition';
 `RouteTransition` requires a few props:
 - `pathname`: the key signifying the transitionable route, most typically the pathname (required)
 - `component`: the element type (`'div'`, `'span'`, etc.) to wrap transitioning routes. use `false` to transition routes themselves (this will require consuming a `style` prop in your route components).
-- `atEnter`: an object of style values for a route that is mounting
-- `atLeave`: an object of style values for a route that is unmounting
-- `atActive`: style values for a route that has mounted
+- `atEnter`: an object of interpolatable style values for a route that is mounting (required)
+- `atLeave`: an object of interpolatable style values for a route that is unmounting (required)
+- `atActive`: interpolatable style values for a route that has mounted (required)
 - `mapStyles`: an optional function to transform styles that aren't 1:1 (e.g. animating `translateX` or other values of `transform`)
 - `runOnMount`: a boolean to signal whether or not to run the transition on initial `RouteTransition` mount
 
