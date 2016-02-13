@@ -30,7 +30,8 @@ import { RouteTransition } from 'react-router-transition';
 - `atEnter`: an object of style values for a route that is mounting
 - `atLeave`: an object of style values for a route that is unmounting
 - `atActive`: style values for a route that has mounted
-- `mapStyles` an optional function to transform styles that aren't 1:1 (e.g. animating `translateX` or other values of `transform`)
+- `mapStyles`: an optional function to transform styles that aren't 1:1 (e.g. animating `translateX` or other values of `transform`)
+- `runOnMount`: a boolean to signal whether or not to run the transition on initial `RouteTransition` mount
 
 and supports a couple optional props:
 - `className`: applies to the wrapper component

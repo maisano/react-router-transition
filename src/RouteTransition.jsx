@@ -15,14 +15,32 @@ const RouteTransition = React.createClass({
     atActive: PropTypes.object.isRequired,
     atLeave: PropTypes.object.isRequired,
     mapStyles: PropTypes.func,
+    runOnMount: PropTypes.bool,
     style: PropTypes.object
   },
 
   getDefaultProps() {
     return {
       component: 'div',
+      runOnMount: true,
       mapStyles: val => val
     };
+  },
+
+  getDefaultStyles() {
+    if (!this.props.runOnMount) {
+      return null;
+    }
+
+    if (!this.props.children) {
+      return [];
+    }
+
+    return [{
+      key: this.props.pathname,
+      data: this.props.children,
+      style: this.props.atEnter
+    }];
   },
 
   // there's only ever one route mounted at a time,
@@ -70,6 +88,7 @@ const RouteTransition = React.createClass({
   render() {
     return (
       <TransitionMotion
+        defaultStyles={this.getDefaultStyles()}
         styles={this.getStyles()}
         willEnter={this.willEnter}
         willLeave={this.willLeave}
