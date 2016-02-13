@@ -20,7 +20,9 @@ const Lorem = React.createClass({
   render() {
     return (
       <div className="lorem" style={this.props.style}>
-        {this.state.lorem}
+        <h1>{count}.</h1>
+        <p>{this.state.lorem}</p>
+        <p>{this.state.lorem.split(' ').reverse().join(' ')}</p>
       </div>
     );
   }

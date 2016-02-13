@@ -9,7 +9,7 @@ const RouteTransitionDemo = (props) => (
       const to = ['', props.route.path, childRoute.path].join('/');
       return (
         <Link className="link" key={to} to={to}>
-          {props.route.path} {index}
+          another {props.route.path}
         </Link>
       );
     })}

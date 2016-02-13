@@ -18,7 +18,6 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <h1>React Router Transition Presets Demo</h1>
         {this.props.route.childRoutes.map(({ path }) => {
           const isActive = this.context.router.isActive(path);
           return (
