@@ -45,6 +45,7 @@
     "eslint-loader": "^1.2.1",
     "eslint-plugin-react": "^3.16.1",
     "history": "^2.0.0",
+    "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0-rc6",
     "webpack": "^1.12.13"
