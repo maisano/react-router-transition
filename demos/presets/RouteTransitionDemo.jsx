@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import { RouteTransition } from '../src/index';
+import { RouteTransition } from '../../src/index';
 
 const RouteTransitionDemo = (props) => (
   <div>

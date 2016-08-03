@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack",
     "build:demos": "webpack --config webpack.demos.config.js",
+    "watch:demos": "webpack --config webpack.demos.config.js --watch",
     "prerelease": "rm -fr lib && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

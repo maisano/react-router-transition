@@ -6,10 +6,13 @@ var demos = path.join(__dirname, 'demos');
 
 module.exports = {
   devtool: 'eval',
-  entry: path.join(demos, 'index.jsx'),
+  entry: {
+    'demos/presets/index': path.join(demos, 'presets/index.jsx'),
+    'demos/simple/index': path.join(demos, 'simple/index.jsx')
+  },
   output: {
-    path: demos,
-    filename: 'index.js'
+    path: './',
+    filename: '[name].js'
   },
   module: {
     loaders: [{
