@@ -21,11 +21,14 @@ const Ipsum = React.createClass({
     };
   },
 
+  componentDidMount() {
+    console.log('this', this.props);
+  },
+
   render() {
-    const title = this.props.route.path.split('-')[1];
     return (
       <div className="lorem" style={this.props.style}>
-        <h1>{title}.</h1>
+        <h1>{this.props.route.title}</h1>
         <p>{this.state.lorem}</p>
         <p>{this.state.lorem.split(' ').reverse().join(' ')}</p>
       </div>

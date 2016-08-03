@@ -7,6 +7,7 @@
     "build": "webpack",
     "build:demos": "webpack --config webpack.demos.config.js",
     "watch:demos": "webpack --config webpack.demos.config.js --watch",
+    "start:demos": "webpack-dev-server --config webpack.demos.config.js",
     "prerelease": "rm -fr lib && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -49,6 +50,7 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0-rc6",
-    "webpack": "^1.12.13"
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
   }
 }

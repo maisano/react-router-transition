@@ -1,7 +1,6 @@
 import React from 'react';
-import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
+import { Link } from 'react-router';
 import { RouteTransition } from '../../src/index';
-import Ipsum from './Ipsum';
 
 const App = React.createClass({
   propTypes: {
@@ -16,6 +15,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
+        <Link to="/" key="home">Home</Link>
         {this.props.route.childRoutes.map(({ path }) => {
           const isActive = this.context.router.isActive(path);
           return (
@@ -43,15 +43,4 @@ const App = React.createClass({
   }
 });
 
-const Demo = () => (
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={Ipsum} />
-      <Route path="demo-1" component={Ipsum} />
-      <Route path="demo-2" component={Ipsum} />
-      <Route path="demo-3" component={Ipsum} />
-    </Route>
-  </Router>
-);
-
-export default Demo;
+export default App;

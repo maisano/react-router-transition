@@ -1,18 +1,18 @@
 'use strict';
 
 var path = require('path');
-
 var demos = path.join(__dirname, 'demos');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   entry: {
-    'demos/presets/index': path.join(demos, 'presets/index.jsx'),
-    'demos/simple/index': path.join(demos, 'simple/index.jsx')
+    presets: path.join(demos, 'presets/index.jsx'),
+    simple: path.join(demos, 'simple/index.jsx')
   },
   output: {
     path: './',
-    filename: '[name].js'
+    filename: 'demos/[name]/index.js',
+    publicPath: '/'
   },
   module: {
     loaders: [{
@@ -26,5 +26,11 @@ module.exports = {
   },
   eslint: {
     configFile: '.eslintrc'
+  },
+  devServer: {
+    contentBase: './demos',
+    noInfo: false,
+    hot: true,
+    inline: true
   }
 };
