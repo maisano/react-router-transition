@@ -21,10 +21,6 @@ const Ipsum = React.createClass({
     };
   },
 
-  componentDidMount() {
-    console.log('this', this.props);
-  },
-
   render() {
     return (
       <div className="lorem" style={this.props.style}>
