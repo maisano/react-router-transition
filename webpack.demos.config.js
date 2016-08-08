@@ -10,8 +10,8 @@ module.exports = {
     simple: path.join(demos, 'simple/index.jsx')
   },
   output: {
-    path: './',
-    filename: 'demos/[name]/index.js',
+    path: './demos',
+    filename: '[name]/index.js',
     publicPath: '/'
   },
   module: {
@@ -30,7 +30,7 @@ module.exports = {
   devServer: {
     contentBase: './demos',
     noInfo: false,
-    hot: true,
+    hot: false,
     inline: true
   }
 };
