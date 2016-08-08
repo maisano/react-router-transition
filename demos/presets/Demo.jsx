@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 import Lorem from './Lorem';
 import RouteTransitionDemo from './RouteTransitionDemo';
 
-import { presets } from '../src/index';
+import { presets } from '../../src/index';
 
 const App = React.createClass({
   propTypes: {

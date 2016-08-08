@@ -66,6 +66,15 @@ const styles = this.props.location.action === 'POP'
 />
 ```
 
+### Styling
+
+Currently, react-router-transition requires that the RouteTransition be absolutely
+positioned. This can be accomplished through either setting the style values
+programmatically using the `mapStyles` prop, the `style` prop, or using CSS.
+
+_Flexbox is not currently supported for the transitioning element._
+
+
 ### Nesting Transitions
 Currently, nesting transitions requires some extra logic as the transitions themselves are usually coupled to the pathname. The way around this is to set the `RouteTransition`'s `pathname` to the pathname of the _current, transitionable_ route.
 
