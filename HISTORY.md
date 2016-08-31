@@ -1,3 +1,6 @@
+### 0.0.6 (08/31/2016)
+* Added `react` to webpack `externals`
+
 ### 0.0.5 (04/08/2016)
 * Added `runOnMount` to `RouteTransition`
 * Added react to devDependencies
