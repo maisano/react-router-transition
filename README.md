@@ -1,6 +1,8 @@
+I strongly recommend looking at [React Router v4](https://react-router.now.sh/) and the authors' provided [animation example](https://react-router.now.sh/animated-transitions) before choosing this library.
+
 # React Router Transition
 
-A simple component for easily declaring mounting and unmounting transitions. Built for `react-router`, powered by `react-motion`. [Some demos](http://maisano.github.io/react-router-transition/demos/#/fade)
+Transitions for React Router. Exports a simple component for easily declaring mounting and unmounting transitions. Built for `react-router`, powered by `react-motion`. [Some demos](http://maisano.github.io/react-router-transition/demos/#/fade)
 
 ```jsx
 import { RouteTransition } from 'react-router-transition';
