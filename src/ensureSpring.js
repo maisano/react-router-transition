@@ -1,4 +1,4 @@
-import { spring } from 'react-motion';
+import spring from 'react-motion/lib/spring';
 
 export default function ensureSpring(styles) {
   return Object.keys(styles).reduce((acc, key) => {
