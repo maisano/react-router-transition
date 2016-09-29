@@ -1,5 +1,5 @@
 import React, { PropTypes, cloneElement, createElement } from 'react';
-import { TransitionMotion } from 'react-motion';
+import TransitionMotion from 'react-motion/lib/TransitionMotion';
 
 import ensureSpring from './ensureSpring';
 
