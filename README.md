@@ -1,4 +1,4 @@
-I strongly recommend looking at [React Router v4](https://github.com/ReactTraining/react-router/tree/v4) and the authors' provided [animation example](https://reacttraining.com/react-router/examples/animated-transitions) before choosing this library.
+I strongly recommend looking at [React Router v4](https://github.com/ReactTraining/react-router/tree/v4) and the authors' provided [animation example](https://reacttraining.com/react-router/web/example/animated-transitions) before choosing this library.
 
 # React Router Transition
 
