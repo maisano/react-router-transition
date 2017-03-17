@@ -7,30 +7,32 @@ module.exports = {
   devtool: 'eval-source-map',
   entry: {
     presets: path.join(demos, 'presets/index.jsx'),
-    simple: path.join(demos, 'simple/index.jsx')
+    simple: path.join(demos, 'simple/index.jsx'),
   },
   output: {
     path: './demos',
     filename: '[name]/index.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loader: 'babel',
-      exclude: /lib|node_modules/
-    }]
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel',
+        exclude: /lib|node_modules/,
+      },
+    ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
   },
   eslint: {
-    configFile: '.eslintrc'
+    configFile: '.eslintrc',
   },
   devServer: {
     contentBase: './demos',
     noInfo: false,
     hot: false,
-    inline: true
-  }
+    inline: true,
+  },
 };
