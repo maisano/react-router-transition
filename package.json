@@ -33,6 +33,7 @@
     "react": ">=0.13.2 || ^0.14"
   },
   "dependencies": {
+    "prop-types": "^15.5.8",
     "react-motion": "^0.4.2"
   },
   "devDependencies": {
