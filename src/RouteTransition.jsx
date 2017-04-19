@@ -1,31 +1,13 @@
-import React, { PropTypes, cloneElement, createElement } from 'react';
-import TransitionMotion from 'react-motion/lib/TransitionMotion';
+import React, { cloneElement, createElement, Component } from "react";
+import TransitionMotion from "react-motion/lib/TransitionMotion";
+import PropTypes from "prop-types";
 
-import ensureSpring from './ensureSpring';
+import ensureSpring from "./ensureSpring";
 
-const RouteTransition = React.createClass({
-  propTypes: {
-    className: PropTypes.string,
-    component: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.bool
-    ]),
-    pathname: PropTypes.string.isRequired,
-    atEnter: PropTypes.object.isRequired,
-    atActive: PropTypes.object.isRequired,
-    atLeave: PropTypes.object.isRequired,
-    mapStyles: PropTypes.func,
-    runOnMount: PropTypes.bool,
-    style: PropTypes.object
-  },
-
-  getDefaultProps() {
-    return {
-      component: 'div',
-      runOnMount: true,
-      mapStyles: val => val
-    };
-  },
+class RouteTransition extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   getDefaultStyles() {
     if (!this.props.runOnMount) {
@@ -36,12 +18,14 @@ const RouteTransition = React.createClass({
       return [];
     }
 
-    return [{
-      key: this.props.pathname,
-      data: this.props.children,
-      style: this.props.atEnter
-    }];
-  },
+    return [
+      {
+        key: this.props.pathname,
+        data: this.props.children,
+        style: this.props.atEnter
+      }
+    ];
+  }
 
   // there's only ever one route mounted at a time,
   // so just return the current match
@@ -51,20 +35,22 @@ const RouteTransition = React.createClass({
     }
 
     // TODO: maybe access route path from children for pathname?
-    return [{
-      key: this.props.pathname,
-      data: this.props.children,
-      style: ensureSpring(this.props.atActive)
-    }];
-  },
+    return [
+      {
+        key: this.props.pathname,
+        data: this.props.children,
+        style: ensureSpring(this.props.atActive)
+      }
+    ];
+  }
 
   willEnter() {
-    return this.props.atEnter;
-  },
+    return () => this.props.atEnter;
+  }
 
   willLeave() {
-    return ensureSpring(this.props.atLeave);
-  },
+    return () => ensureSpring(this.props.atLeave);
+  }
 
   renderRoute(config) {
     const props = {
@@ -75,28 +61,46 @@ const RouteTransition = React.createClass({
     return this.props.component
       ? createElement(this.props.component, props, config.data)
       : cloneElement(config.data, props);
-  },
+  }
 
   renderRoutes(interpolatedStyles) {
     return (
       <div className={this.props.className} style={this.props.style}>
-        {interpolatedStyles.map(this.renderRoute)}
+        {interpolatedStyles.map(config => this.renderRoute(config))}
       </div>
     );
-  },
+  }
 
   render() {
     return (
       <TransitionMotion
         defaultStyles={this.getDefaultStyles()}
         styles={this.getStyles()}
-        willEnter={this.willEnter}
-        willLeave={this.willLeave}
+        willEnter={this.willEnter()}
+        willLeave={this.willLeave()}
       >
-        {this.renderRoutes}
+        {interpolatedStyles => this.renderRoutes(interpolatedStyles)}
       </TransitionMotion>
     );
   }
-});
+}
+
+RouteTransition.defaultProps = {
+  component: "div",
+  runOnMount: true,
+  mapStyles: val => val
+};
+
+RouteTransition.propTypes = {
+  className: PropTypes.string,
+  component: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  pathname: PropTypes.string.isRequired,
+  atEnter: PropTypes.object.isRequired,
+  atActive: PropTypes.object.isRequired,
+  atLeave: PropTypes.object.isRequired,
+  mapStyles: PropTypes.func,
+  runOnMount: PropTypes.bool,
+  style: PropTypes.object
+};
 
 export default RouteTransition;
