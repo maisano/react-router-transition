@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "prop-types": "^15.5.8",
-    "react-motion": "^0.4.2"
+    "react-motion": "^0.4.8"
   },
   "devDependencies": {
     "babel-core": "^6.4.5",
