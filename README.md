@@ -2,6 +2,7 @@
 
 Transitions for React Router. Exports a simple component for easily declaring mounting and unmounting transitions. Built for `react-router`, powered by `react-motion`. [Some demos](http://maisano.github.io/react-router-transition/demos/#/fade)
 
+#### React Router <= v3 example
 ```jsx
 import { RouteTransition } from 'react-router-transition';
 
@@ -17,6 +18,34 @@ import { RouteTransition } from 'react-router-transition';
   </RouteTransition>
 </div>
 ```
+
+#### React Router v4 example
+```jsx
+import { RouteTransition } from 'react-router-transition';
+import { Route, Switch } from 'react-router';
+
+// in your root app component:
+<div>
+  <Route render={({location, history, match}) => {
+    return (
+      <RouteTransition 
+        pathname={location.pathname}
+        atEnter={{ opacity: 0 }}
+        atLeave={{ opacity: 0 }}
+        atActive={{ opacity: 1 }}
+      >
+        <Switch key={location.key} location={location}>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about/" component={About}/>
+        </Switch>
+      </RouteTransition>
+    );
+  }} />
+</div>
+```
+*V4 Notes:*
+
+In React Router v4 a `<Route>` can no longer have children *and* a component so replacing them above with `{this.props.children}` will not work. If you are unaware of what `Route.render` is it is advised you [read about it here](https://reacttraining.com/react-router/web/api/Route/render-func).
 
 ### Installation
 
