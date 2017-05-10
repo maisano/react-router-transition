@@ -1,12 +1,16 @@
-import React, { cloneElement, createElement, Component } from "react";
-import TransitionMotion from "react-motion/lib/TransitionMotion";
-import PropTypes from "prop-types";
+import React, { cloneElement, createElement, Component } from 'react';
+import TransitionMotion from 'react-motion/lib/TransitionMotion';
+import PropTypes from 'prop-types';
 
-import ensureSpring from "./ensureSpring";
+import ensureSpring from './ensureSpring';
 
 class RouteTransition extends Component {
   constructor(props) {
     super(props);
+    this.renderRoute = this.renderRoute.bind(this);
+    this.renderRoutes = this.renderRoutes.bind(this);
+    this.willEnter = this.willEnter.bind(this);
+    this.willLeave = this.willLeave.bind(this);
   }
 
   getDefaultStyles() {
@@ -22,8 +26,8 @@ class RouteTransition extends Component {
       {
         key: this.props.pathname,
         data: this.props.children,
-        style: this.props.atEnter
-      }
+        style: this.props.atEnter,
+      },
     ];
   }
 
@@ -39,23 +43,23 @@ class RouteTransition extends Component {
       {
         key: this.props.pathname,
         data: this.props.children,
-        style: ensureSpring(this.props.atActive)
-      }
+        style: ensureSpring(this.props.atActive),
+      },
     ];
   }
 
   willEnter() {
-    return () => this.props.atEnter;
+    return this.props.atEnter;
   }
 
   willLeave() {
-    return () => ensureSpring(this.props.atLeave);
+    return ensureSpring(this.props.atLeave);
   }
 
   renderRoute(config) {
     const props = {
       style: this.props.mapStyles(config.style),
-      key: config.key
+      key: config.key,
     };
 
     return this.props.component
@@ -66,7 +70,7 @@ class RouteTransition extends Component {
   renderRoutes(interpolatedStyles) {
     return (
       <div className={this.props.className} style={this.props.style}>
-        {interpolatedStyles.map(config => this.renderRoute(config))}
+        {interpolatedStyles.map(this.renderRoute)}
       </div>
     );
   }
@@ -76,19 +80,19 @@ class RouteTransition extends Component {
       <TransitionMotion
         defaultStyles={this.getDefaultStyles()}
         styles={this.getStyles()}
-        willEnter={this.willEnter()}
-        willLeave={this.willLeave()}
+        willEnter={this.willEnter}
+        willLeave={this.willLeave}
       >
-        {interpolatedStyles => this.renderRoutes(interpolatedStyles)}
+        {this.renderRoutes}
       </TransitionMotion>
     );
   }
 }
 
 RouteTransition.defaultProps = {
-  component: "div",
+  component: 'div',
   runOnMount: true,
-  mapStyles: val => val
+  mapStyles: val => val,
 };
 
 RouteTransition.propTypes = {
@@ -100,7 +104,7 @@ RouteTransition.propTypes = {
   atLeave: PropTypes.object.isRequired,
   mapStyles: PropTypes.func,
   runOnMount: PropTypes.bool,
-  style: PropTypes.object
+  style: PropTypes.object,
 };
 
 export default RouteTransition;
