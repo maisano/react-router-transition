@@ -1,12 +1,15 @@
 'use strict';
 
-var path = require('path');
+const path = require('path');
+const webpack = require('webpack');
 
-var src = path.join(__dirname, 'src');
+const src = path.join(__dirname, 'src');
 
 module.exports = {
   devtool: 'sourcemap',
+
   entry: path.join(src, 'index.js'),
+
   externals: [
     {
       react: {
@@ -17,6 +20,7 @@ module.exports = {
       },
     },
   ],
+
   output: {
     path: path.join(__dirname, 'lib'),
     filename: 'react-router-transition.js',
@@ -24,20 +28,27 @@ module.exports = {
     library: 'ReactRouterTransition',
     libraryTarget: 'umd',
   },
+
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.jsx?$/,
-        loader: 'babel',
+        test: /\.js$/,
+        loader: 'babel-loader',
         include: src,
       },
     ],
   },
+
   resolve: {
-    root: src,
-    extensions: ['', '.js', '.jsx'],
+    modules: [
+      src,
+      'node_modules',
+    ],
   },
-  eslint: {
-    configFile: '.eslintrc',
-  },
+
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    }),
+  ],
 };

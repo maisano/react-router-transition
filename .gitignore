@@ -1,7 +1,8 @@
 .DS_Store
 *.swp
 
+/demos/bundle.*
+
 lib
-/demos/**/index.js
 
 node_modules
