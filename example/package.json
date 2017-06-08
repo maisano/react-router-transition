@@ -1,0 +1,20 @@
+{
+  "name": "react-router-transition-example",
+  "version": "1.0.0",
+  "description": "An example showcasing some react-router-transition usage",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --history-api-fallback"
+  },
+  "author": "maisano",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "prismjs": "^1.6.0",
+    "prismjs-loader": "0.0.4",
+    "prop-types": "^15.5.10",
+    "style-loader": "^0.18.2",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
