@@ -8,21 +8,23 @@ const identity = val => val;
 
 class RouteTransition extends Component {
   static defaultProps = {
-    component: 'div',
-    runOnMount: true,
+    component: 'span',
+    runOnMount: false,
     mapStyles: identity,
   };
 
   static propTypes = {
     className: PropTypes.string,
-    component: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    pathname: PropTypes.string.isRequired,
+    component: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.element,
+      PropTypes.string,
+    ]),
     atEnter: PropTypes.object.isRequired,
     atActive: PropTypes.object.isRequired,
     atLeave: PropTypes.object.isRequired,
     mapStyles: PropTypes.func.isRequired,
     runOnMount: PropTypes.bool.isRequired,
-    style: PropTypes.object,
   };
 
   getDefaultStyles() {
@@ -36,7 +38,7 @@ class RouteTransition extends Component {
 
     return [
       {
-        key: this.props.pathname,
+        key: this.props.children.key,
         data: this.props.children,
         style: this.props.atEnter,
       },
@@ -52,7 +54,7 @@ class RouteTransition extends Component {
 
     return [
       {
-        key: this.props.pathname,
+        key: this.props.children.key,
         data: this.props.children,
         style: ensureSpring(this.props.atActive),
       },
@@ -73,14 +75,14 @@ class RouteTransition extends Component {
       key: config.key,
     };
 
-    return this.props.component
+    return this.props.component !== false
       ? createElement(this.props.component, props, config.data)
       : cloneElement(config.data, props);
   };
 
   renderRoutes = interpolatedStyles => {
     return (
-      <div className={this.props.className} style={this.props.style}>
+      <div className={this.props.className}>
         {interpolatedStyles.map(this.renderRoute)}
       </div>
     );

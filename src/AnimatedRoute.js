@@ -15,13 +15,12 @@ function getPathname({ pathname }, { exact, path }) {
 const AnimatedRoute = ({ atActive, atEnter, atLeave, ...routeProps }) => (
   <Route
     render={({ location, match }) => (
-      <RouteTransition
-        atActive={atActive}
-        atEnter={atEnter}
-        atLeave={atLeave}
-        pathname={getPathname(location, routeProps)}
-      >
-        <Route {...routeProps} location={location} />
+      <RouteTransition atActive={atActive} atEnter={atEnter} atLeave={atLeave}>
+        <Route
+          {...routeProps}
+          location={location}
+          key={getPathname(location, routeProps)}
+        />
       </RouteTransition>
     )}
   />
