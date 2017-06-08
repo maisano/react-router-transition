@@ -2,40 +2,71 @@ import React from 'react';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 import matchPath from 'react-router-dom/matchPath';
+import PropTypes from 'prop-types';
 
 import RouteTransition from './RouteTransition';
 
 /**
- * In order to support the nesting of `AnimatedSwitch` components,
- * we need to key each `RouteTransition` and its child `Switch` to
- * the path of the matched route. Similar to how `Switch` works,
- * we need to match against the child routes. Kind of a bummer, but
- * some necessary magic to have this work.
+ * Some superfluous work, but something we need to do in order
+ * to persist matches/allow for nesting/etc.
  */
-function getMatchedRoutePath(children, pathname) {
-  const match = React.Children.toArray(children).find(child => {
+function getMatchedRoute(children, pathname) {
+  return React.Children.toArray(children).find(child => {
     return matchPath(pathname, {
       exact: child.props.exact,
       path: child.props.path,
     });
   });
-
-  return match !== undefined ? match.props.path : 'no-match';
 }
 
-const AnimatedSwitch = ({ children, ...routeTransitionProps }) => (
+class AnimatedSwitch extends React.Component {
+  static propTypes = {
+    location: PropTypes.shape({
+      key: PropTypes.string,
+      pathname: PropTypes.string,
+    }),
+  };
+
+  state = {
+    key: this.props.location.key,
+    match: getMatchedRoute(this.props.children, this.props.location.pathname),
+  };
+
+  componentWillReceiveProps(nextProps) {
+    const nextMatch = getMatchedRoute(
+      nextProps.children,
+      nextProps.location.pathname,
+    );
+
+    // TODO: handle no matches
+    if (this.state.match.key !== nextMatch.key) {
+      this.setState({
+        match: nextMatch,
+        key: nextProps.location.key,
+      });
+    }
+  }
+
+  render() {
+    const { children, location, match, ...routeTransitionProps } = this.props;
+
+    return (
+      <RouteTransition {...routeTransitionProps}>
+        <Switch key={this.state.key} location={location}>
+          {children}
+        </Switch>
+      </RouteTransition>
+    );
+  }
+}
+
+// inject location as a prop so we can listen for changes
+const RouteWrapper = props => (
   <Route
-    render={({ location, match }) => {
-      const key = getMatchedRoutePath(children, location.pathname);
-      return (
-        <RouteTransition pathname={key} {...routeTransitionProps}>
-          <Switch key={key} location={location}>
-            {children}
-          </Switch>
-        </RouteTransition>
-      );
-    }}
+    children={({ location }) => (
+      <AnimatedSwitch location={location} {...props} />
+    )}
   />
 );
 
-export default AnimatedSwitch;
+export default RouteWrapper;
