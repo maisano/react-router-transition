@@ -1,7 +1,6 @@
 {
   "extends": "airbnb",
   "parser": "babel-eslint",
-
   "plugins": [
     "react",
     "jest"

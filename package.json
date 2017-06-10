@@ -5,12 +5,13 @@
   "main": "lib/react-router-transition.js",
   "scripts": {
     "build": "webpack",
-    "prepublish": "rm -fr lib && npm run build",
-    "test": "jest",
-    "fixstyle": "npm run prettier && npm run lint-fix",
-    "prettier": "prettier --print-width=80 --tab-width=2 --bracket-spacing=true --single-quote=true --trailing-comma=all --write ./src/*.js",
     "eslint": "eslint",
-    "lint-fix": "eslint --fix ./src"
+    "fix:eslint": "eslint --fix ./src",
+    "fix:prettier": "prettier --print-width=80 --tab-width=2 --bracket-spacing=true --single-quote=true --trailing-comma=all --write ./src/*.js",
+    "fix": "npm run fix:prettier && npm run fix:eslint",
+    "prepublish": "rm -fr lib && npm run build",
+    "prettier": "prettier",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
