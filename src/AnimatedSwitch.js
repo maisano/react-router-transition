@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component, Children } from 'react';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 import matchPath from 'react-router-dom/matchPath';
@@ -11,7 +11,7 @@ import RouteTransition from './RouteTransition';
  * to persist matches/allow for nesting/etc.
  */
 function getMatchedRoute(children, pathname) {
-  return React.Children.toArray(children).find(child => {
+  return Children.toArray(children).find(child => {
     return matchPath(pathname, {
       exact: child.props.exact,
       path: child.props.path,
@@ -19,7 +19,7 @@ function getMatchedRoute(children, pathname) {
   });
 }
 
-class AnimatedSwitch extends React.Component {
+class AnimatedSwitch extends Component {
   static propTypes = {
     location: PropTypes.shape({
       key: PropTypes.string,

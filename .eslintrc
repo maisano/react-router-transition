@@ -1,15 +1,21 @@
 {
   "extends": "airbnb",
+  "parser": "babel-eslint",
 
   "plugins": [
     "react"
   ],
 
   "rules": {
-    "comma-dangle": [2, "never"],
-    "react/prefer-es6-class": [1, "never"],
+    "react/forbid-prop-types": ["off"],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "react/jsx-wrap-multilines": ["error"],
+    "react/prefer-es6-class": ["off"],
+    "react/no-children-prop": "off",
+
+    "react/require-default-props": ["off"],
     "react/prop-types": [1, {
-      ignore: ["children", "style", "className"]
+      ignore: ["children", "style", "className", "match"]
     }]
   }
 }
