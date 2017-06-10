@@ -1,6 +1,7 @@
 import React from 'react';
 import Route from 'react-router-dom/Route';
 import matchPath from 'react-router-dom/matchPath';
+import PropTypes from 'prop-types';
 
 import RouteTransition from './RouteTransition';
 
@@ -14,7 +15,7 @@ function getPathname({ pathname }, { exact, path }) {
 
 const AnimatedRoute = ({ atActive, atEnter, atLeave, ...routeProps }) => (
   <Route
-    render={({ location, match }) => (
+    render={({ location }) => (
       <RouteTransition atActive={atActive} atEnter={atEnter} atLeave={atLeave}>
         <Route
           {...routeProps}
@@ -25,5 +26,11 @@ const AnimatedRoute = ({ atActive, atEnter, atLeave, ...routeProps }) => (
     )}
   />
 );
+
+AnimatedRoute.propTypes = {
+  atActive: PropTypes.object.isRequired,
+  atEnter: PropTypes.object.isRequired,
+  atLeave: PropTypes.object.isRequired,
+};
 
 export default AnimatedRoute;
