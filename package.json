@@ -7,9 +7,10 @@
     "build": "webpack",
     "prepublish": "rm -fr lib && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "fixstyle": "npm run prettier && npm run lint-fix",
     "prettier": "prettier --print-width=80 --tab-width=2 --bracket-spacing=true --single-quote=true --trailing-comma=all --write ./src/*.js",
     "eslint": "eslint",
-    "lint": "eslint --fix ./src"
+    "lint-fix": "eslint --fix ./src"
   },
   "repository": {
     "type": "git",
