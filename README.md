@@ -64,9 +64,7 @@ The primary component for declaring a route transition.
 - `component`: the element type (`'div'`, `'span'`, etc.) to wrap transitioning routes. use `false` to transition routes themselves (this will require consuming a `style` prop in your route components).
 - `mapStyles`: an optional function to transform styles that aren't 1:1 (e.g. animating `translateX` or other values of `transform`)
 - `runOnMount`: a boolean to signal whether or not to run the transition on initial `RouteTransition` mount
-
-and supports a couple optional props:
-- [`className`]: Optional. ClassName is defined on the wrapper component
+- [`className`]: Optional. `className` is defined on the wrapper component
 - [`style`]: Optional. Styles are applied to the wrapper component
 
 If you want more granular control over the transition, pass in `spring` objects accordingly. For more information on springs, check out [`react-motion`'s documentation](https://github.com/chenglou/react-motion#--spring-val-number-config-springhelperconfig--opaqueconfig).
