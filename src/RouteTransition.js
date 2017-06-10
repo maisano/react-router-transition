@@ -61,13 +61,9 @@ class RouteTransition extends Component {
     ];
   }
 
-  willEnter = () => {
-    return this.props.atEnter;
-  };
+  willEnter = () => this.props.atEnter;
 
-  willLeave = () => {
-    return ensureSpring(this.props.atLeave);
-  };
+  willLeave = () => ensureSpring(this.props.atLeave);
 
   renderRoute = config => {
     const props = {
@@ -80,13 +76,10 @@ class RouteTransition extends Component {
       : cloneElement(config.data, props);
   };
 
-  renderRoutes = interpolatedStyles => {
-    return (
-      <div className={this.props.className}>
-        {interpolatedStyles.map(this.renderRoute)}
-      </div>
-    );
-  };
+  renderRoutes = interpolatedStyles =>
+    (<div className={this.props.className}>
+      {interpolatedStyles.map(this.renderRoute)}
+    </div>);
 
   render() {
     return (

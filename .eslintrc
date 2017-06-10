@@ -7,12 +7,13 @@
   ],
 
   "rules": {
+    "arrow-parens": ["error", "as-needed"],
     "react/forbid-prop-types": ["off"],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "react/jsx-max-props-per-line": ["error", { "when": "multiline" }],
     "react/jsx-wrap-multilines": ["error"],
-    "react/prefer-es6-class": ["off"],
     "react/no-children-prop": "off",
-
+    "react/prefer-es6-class": ["off"],
     "react/require-default-props": ["off"],
     "react/prop-types": [1, {
       ignore: ["children", "style", "className", "match"]
