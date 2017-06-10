@@ -3,18 +3,21 @@
   "parser": "babel-eslint",
 
   "plugins": [
-    "react"
+    "react",
+    "jest"
   ],
-
+  "env": {
+    "jest/globals": true
+  },
   "rules": {
-    "arrow-parens": ["error", "as-needed"],
-    "react/forbid-prop-types": ["off"],
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
-    "react/jsx-max-props-per-line": ["error", { "when": "multiline" }],
-    "react/jsx-wrap-multilines": ["error"],
-    "react/no-children-prop": "off",
-    "react/prefer-es6-class": ["off"],
-    "react/require-default-props": ["off"],
+    "arrow-parens": [2, "as-needed"],
+    "react/forbid-prop-types": [0],
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-max-props-per-line": [2, { "when": "multiline" }],
+    "react/jsx-wrap-multilines": [2],
+    "react/no-children-prop": [0],
+    "react/prefer-es6-class": [0],
+    "react/require-default-props": [0],
     "react/prop-types": [1, {
       ignore: ["children", "style", "className", "match"]
     }]
