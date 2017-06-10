@@ -45,7 +45,7 @@ import { Route, Switch } from 'react-router';
 ```
 *V4 Notes:*
 
-In React Router v4 a `<Route>` can no longer have children *and* a component so replacing them above with `{this.props.children}` will not work. If you are unaware of what `Route.render` does,[read about it here](https://reacttraining.com/react-router/web/api/Route/render-func).
+In React Router v4 a `<Route>` can no longer have children *and* a component so replacing them above with `{this.props.children}` will not work. If you are unaware of what `Route.render` does, [read about it here](https://reacttraining.com/react-router/web/api/Route/render-func).
 
 ### Installation
 
