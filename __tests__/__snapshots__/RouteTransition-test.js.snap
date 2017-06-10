@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RouteTransition mountes. 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <TransitionMotion
+    defaultStyles={null}
+    didLeave={[Function]}
+    styles={Array []}
+    willEnter={[Function]}
+    willLeave={[Function]}
+>
+    [Function]
+</TransitionMotion>,
+  "nodes": Array [
+    <TransitionMotion
+      defaultStyles={null}
+      didLeave={[Function]}
+      styles={Array []}
+      willEnter={[Function]}
+      willLeave={[Function]}
+>
+      [Function]
+</TransitionMotion>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <RouteTransition
+        component="span"
+        mapStyles={[Function]}
+        runOnMount={false}
+/>,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": RouteTransition {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "component": "span",
+          "mapStyles": [Function],
+          "runOnMount": false,
+        },
+        "refs": Object {},
+        "renderRoute": [Function],
+        "renderRoutes": [Function],
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+        "willEnter": [Function],
+        "willLeave": [Function],
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <TransitionMotion
+          defaultStyles={null}
+          didLeave={[Function]}
+          styles={Array []}
+          willEnter={[Function]}
+          willLeave={[Function]}
+>
+          [Function]
+</TransitionMotion>,
+        "_debugID": 2,
+        "_renderedOutput": <TransitionMotion
+          defaultStyles={null}
+          didLeave={[Function]}
+          styles={Array []}
+          willEnter={[Function]}
+          willLeave={[Function]}
+>
+          [Function]
+</TransitionMotion>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <RouteTransition
+    component="span"
+    mapStyles={[Function]}
+    runOnMount={false}
+/>,
+}
+`;
+
+exports[`RouteTransition mounts 1`] = `"<div></div>"`;
