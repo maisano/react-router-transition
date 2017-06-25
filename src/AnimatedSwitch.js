@@ -6,6 +6,10 @@ import PropTypes from 'prop-types';
 
 import RouteTransition from './RouteTransition';
 
+const NO_MATCH = {
+  key: 'no-match',
+};
+
 /**
  * Some superfluous work, but something we need to do in order
  * to persist matches/allow for nesting/etc.
@@ -16,7 +20,7 @@ function getMatchedRoute(children, pathname) {
       exact: child.props.exact,
       path: child.props.path,
     });
-  });
+  }) || NO_MATCH;
 }
 
 class AnimatedSwitch extends React.Component {
@@ -32,17 +36,18 @@ class AnimatedSwitch extends React.Component {
     match: getMatchedRoute(this.props.children, this.props.location.pathname),
   };
 
+  matches = 0;
+
   componentWillReceiveProps(nextProps) {
     const nextMatch = getMatchedRoute(
       nextProps.children,
       nextProps.location.pathname,
     );
 
-    // TODO: handle no matches
     if (this.state.match.key !== nextMatch.key) {
       this.setState({
         match: nextMatch,
-        key: nextProps.location.key,
+        key: nextProps.location.key + ++this.matches,
       });
     }
   }
