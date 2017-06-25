@@ -5,21 +5,24 @@ import matchPath from 'react-router-dom/matchPath';
 import RouteTransition from './RouteTransition';
 
 /**
- * `RouteTransition` uses `pathname` as the key for transitioning
- * children. We only care whether the route matches or not.
+ * Here we only care about whether or not the pathname matches. If so,
+ * we'll use the route's path as the key, otherwise we'll default it
+ * to a string signifying no match.
  */
-function getPathname({ pathname }, { exact, path }) {
-  return matchPath(pathname, { exact, path }) ? path : 'no-match';
+function getKey({ pathname }, path, exact) {
+  return matchPath(pathname, { exact, path }) ? 'match' : 'no-match';
 }
 
-const AnimatedRoute = ({ atActive, atEnter, atLeave, ...routeProps }) => (
+const AnimatedRoute = ({ component, path, exact, ...routeTransitionProps }) => (
   <Route
     render={({ location, match }) => (
-      <RouteTransition atActive={atActive} atEnter={atEnter} atLeave={atLeave}>
+      <RouteTransition {...routeTransitionProps}>
         <Route
-          {...routeProps}
+          key={getKey(location, path, exact)}
+          path={path}
+          exact={exact}
           location={location}
-          key={getPathname(location, routeProps)}
+          component={component}
         />
       </RouteTransition>
     )}

@@ -8,14 +8,14 @@ const identity = val => val;
 
 class RouteTransition extends Component {
   static defaultProps = {
-    component: 'span',
+    wrapperComponent: 'div',
     runOnMount: false,
     mapStyles: identity,
   };
 
   static propTypes = {
     className: PropTypes.string,
-    component: PropTypes.oneOfType([
+    wrapperComponent: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.element,
       PropTypes.string,
@@ -75,8 +75,8 @@ class RouteTransition extends Component {
       key: config.key,
     };
 
-    return this.props.component !== false
-      ? createElement(this.props.component, props, config.data)
+    return this.props.wrapperComponent !== false
+      ? createElement(this.props.wrapperComponent, props, config.data)
       : cloneElement(config.data, props);
   };
 
