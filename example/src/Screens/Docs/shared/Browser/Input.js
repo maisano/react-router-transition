@@ -1,5 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { css } from 'glamor';
+
+const inputRule = css`
+  flex-grow: 1;
+  margin-left: 8px;
+  padding: 5px 7px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  line-height: 1.5em;
+
+  &:focus {
+    outline: none;
+    border-color: rgb(89, 163, 240);
+  }
+`;
 
 class LocationInput extends Component {
   static propTypes = {
@@ -53,7 +69,7 @@ class LocationInput extends Component {
     return (
       <input
         type="text"
-        className="location"
+        css={inputRule}
         value={this.state.value}
         onChange={this.handleChange}
         onFocus={this.selectText}
