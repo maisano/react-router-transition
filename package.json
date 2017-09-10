@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A thin layer over react-motion for animating routes in react-router.",
   "main": "lib/react-router-transition.js",
-  "module": "src/RouteTransition.jsx",
-  "jsnext:main": "src/RouteTransition.jsx",
+  "module": "src/index.js",
+  "jsnext:main": "src/index.js",
   "scripts": {
     "build": "webpack",
     "gh-pages": "git b -D gh-pages && git co -b gh-pages && (cd example && npm run build) && cp example/{index.html,bundle.js} ./ && cp index.html 404.html && git add . && git commit -m 'gh-pages' && git push origin gh-pages --force",
