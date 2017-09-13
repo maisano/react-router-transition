@@ -4,6 +4,7 @@
 example/bundle.*
 
 lib
+es
 
 node_modules
 
