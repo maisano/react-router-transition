@@ -20,8 +20,8 @@ const switchRule = css`
 
 function zoom(val) {
   return spring(val, {
-    stiffness: 240,
-    damping: 18,
+    stiffness: 135,
+    damping: 15,
   });
 }
 
