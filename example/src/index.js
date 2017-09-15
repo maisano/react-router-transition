@@ -38,17 +38,17 @@ const routeRule = css`
   }
 `;
 
-function whip(val) {
+function glide(val) {
   return spring(val, {
-    stiffness: 270,
+    stiffness: 174,
     damping: 24,
   });
 }
 
-function snap(val) {
+function slide(val) {
   return spring(val, {
-    stiffness: 400,
-    damping: 24,
+    stiffness: 125,
+    damping: 16,
   });
 }
 
@@ -57,10 +57,10 @@ const pageTransitions = {
     offset: 100,
   },
   atLeave: {
-    offset: whip(-100),
+    offset: glide(-100),
   },
   atActive: {
-    offset: whip(0),
+    offset: glide(0),
   },
 };
 
@@ -69,10 +69,10 @@ const topBarTransitions = {
     offset: -100,
   },
   atLeave: {
-    offset: snap(-100),
+    offset: slide(-150),
   },
   atActive: {
-    offset: snap(0),
+    offset: slide(0),
   },
 };
 
