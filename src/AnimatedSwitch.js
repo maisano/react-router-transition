@@ -11,6 +11,13 @@ const NO_MATCH = {
 };
 
 /**
+ * Not every location object has a `key` property (e.g. HashHistory).
+ */
+function getLocationKey(location) {
+  return typeof location.key === 'string' ? location.key : '';
+}
+
+/**
  * Some superfluous work, but something we need to do in order
  * to persist matches/allow for nesting/etc.
  */
@@ -32,7 +39,7 @@ class AnimatedSwitch extends React.Component {
   };
 
   state = {
-    key: this.props.location.key,
+    key: getLocationKey(this.props.location),
     match: getMatchedRoute(this.props.children, this.props.location.pathname),
   };
 
@@ -47,7 +54,7 @@ class AnimatedSwitch extends React.Component {
     if (this.state.match.key !== nextMatch.key) {
       this.setState({
         match: nextMatch,
-        key: nextProps.location.key + ++this.matches,
+        key: getLocationKey(nextProps.location) + ++this.matches,
       });
     }
   }
