@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/maisano/react-router-transition#readme",
   "peerDependencies": {
-    "react": "^15"
+    "react": "^15.0.0 || ^16.0.0"
   },
   "dependencies": {
     "prop-types": "^15.5.10",
