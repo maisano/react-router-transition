@@ -25,6 +25,7 @@ class RouteTransition extends Component {
     atLeave: PropTypes.object.isRequired,
     mapStyles: PropTypes.func.isRequired,
     runOnMount: PropTypes.bool.isRequired,
+    springConfig: PropTypes.object,
   };
 
   getDefaultStyles() {
@@ -56,7 +57,7 @@ class RouteTransition extends Component {
       {
         key: this.props.children.key,
         data: this.props.children,
-        style: ensureSpring(this.props.atActive),
+        style: ensureSpring(this.props.atActive, this.props.springConfig),
       },
     ];
   }
@@ -66,7 +67,7 @@ class RouteTransition extends Component {
   };
 
   willLeave = () => {
-    return ensureSpring(this.props.atLeave);
+    return ensureSpring(this.props.atLeave, this.props.springConfig);
   };
 
   renderRoute = config => {
