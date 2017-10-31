@@ -22,14 +22,12 @@ function getLocationKey(location) {
  * to persist matches/allow for nesting/etc.
  */
 function getMatchedRoute(children, pathname) {
-  return (
-    React.Children.toArray(children).find(child => {
-      return matchPath(pathname, {
-        exact: child.props.exact,
-        path: child.props.path,
-      });
-    }) || NO_MATCH
-  );
+  return React.Children.toArray(children).find(child => {
+    return matchPath(pathname, {
+      exact: child.props.exact,
+      path: child.props.path,
+    });
+  }) || NO_MATCH;
 }
 
 class AnimatedSwitch extends React.Component {
