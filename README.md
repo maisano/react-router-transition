@@ -11,20 +11,23 @@ Painless transitions for React Router, powered by React Motion. [Example site](h
 
 ### Example Usage
 ```jsx
+import Router from 'react-router-dom/BrowserRouter';
 import { AnimatedSwitch } from 'react-router-transition';
 import Route from 'react-router-dom/Route';
 
 export default () => (
-  <AnimatedSwitch
-    atEnter={{ opacity: 0 }}
-    atLeave={{ opacity: 0 }}
-    atActive={{ opacity: 1 }}
-    className="switch-wrapper"
-  >
-    <Route exact path="/" component={Home} />
-    <Route path="/about/" component={About}/>
-    <Route path="/etc/" component={Etc}/>
-  </AnimatedSwitch>
+  <Router>
+    <AnimatedSwitch
+      atEnter={{ opacity: 0 }}
+      atLeave={{ opacity: 0 }}
+      atActive={{ opacity: 1 }}
+      className="switch-wrapper"
+    >
+      <Route exact path="/" component={Home} />
+      <Route path="/about/" component={About}/>
+      <Route path="/etc/" component={Etc}/>
+    </AnimatedSwitch>
+  </Router>
 )
 ```
 
