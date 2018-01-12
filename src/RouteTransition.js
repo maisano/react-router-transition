@@ -23,6 +23,7 @@ class RouteTransition extends Component {
     atEnter: PropTypes.object.isRequired,
     atActive: PropTypes.object.isRequired,
     atLeave: PropTypes.object.isRequired,
+    didLeave: PropTypes.func,
     mapStyles: PropTypes.func.isRequired,
     runOnMount: PropTypes.bool.isRequired,
   };
@@ -69,6 +70,12 @@ class RouteTransition extends Component {
     return ensureSpring(this.props.atLeave);
   };
 
+  didLeave = (styleThatLeft) => {
+    if (this.props.didLeave) {
+      this.props.didLeave(styleThatLeft);
+    }
+  }
+
   renderRoute = config => {
     const props = {
       style: this.props.mapStyles(config.style),
@@ -95,6 +102,7 @@ class RouteTransition extends Component {
         styles={this.getStyles()}
         willEnter={this.willEnter}
         willLeave={this.willLeave}
+        didLeave={this.didLeave}
       >
         {this.renderRoutes}
       </TransitionMotion>

@@ -17,6 +17,8 @@ const Props = () => (
       <code>atEnter</code>, <code>atLeave</code>, <code>atActive</code>
     </div>
     <p>Objects with numerical values, expressing the interpolatable states a component will have when mounting, unmounting and mounted, respectively. Note that <code>spring</code> objects are valid only for <code>atActive</code> and <code>atLeave</code>.</p>
+    <div css={propTypesRule}><code>didLeave</code></div>
+    <p>An optional function that will be called when animation is done.</p>
     <div css={propTypesRule}><code>mapStyles</code></div>
     <p>An optional function for transforming values that don't map 1:1 with styles (e.g. <code>translateX</code> or other values of the <code>transform</code> style property).</p>
     <div css={propTypesRule}><code>runOnMount</code></div>
