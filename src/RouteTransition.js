@@ -19,6 +19,7 @@ class RouteTransition extends Component {
       PropTypes.bool,
       PropTypes.element,
       PropTypes.string,
+      PropTypes.func
     ]),
     atEnter: PropTypes.object.isRequired,
     atActive: PropTypes.object.isRequired,
