@@ -1,6 +1,5 @@
 import React from 'react';
-import Route from 'react-router-dom/Route';
-import matchPath from 'react-router-dom/matchPath';
+import { Route, matchPath } from 'react-router-dom';
 
 import RouteTransition from './RouteTransition';
 

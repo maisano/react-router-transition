@@ -7,13 +7,12 @@ Painless transitions for React Router, powered by React Motion. [Example site](h
 
 ### Installation
 
-`npm install --save react-router-transition`
+`npm install --save react-router-transition react-router-dom`
 
 ### Example Usage
 ```jsx
-import Router from 'react-router-dom/BrowserRouter';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
-import Route from 'react-router-dom/Route';
 
 export default () => (
   <Router>
