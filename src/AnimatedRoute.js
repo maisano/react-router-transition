@@ -12,7 +12,7 @@ function getKey({ pathname }, path, exact) {
   return matchPath(pathname, { exact, path }) ? 'match' : 'no-match';
 }
 
-const AnimatedRoute = ({ component, path, exact, ...routeTransitionProps }) => (
+const AnimatedRoute = ({ render, component, path, exact, ...routeTransitionProps }) => (
   <Route
     render={({ location, match }) => (
       <RouteTransition {...routeTransitionProps}>
@@ -22,6 +22,7 @@ const AnimatedRoute = ({ component, path, exact, ...routeTransitionProps }) => (
           exact={exact}
           location={location}
           component={component}
+          render={render}
         />
       </RouteTransition>
     )}
