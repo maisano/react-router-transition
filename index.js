@@ -159,14 +159,21 @@ function getLocationKey(location) {
 // Some superfluous work, but something we need to do in order
 // to persist matches/allow for nesting/etc.
 function getMatchedRoute(children, { pathname }) {
-  return (
-    React.Children.toArray(children).find((child) => {
-      return matchPath(pathname, {
-        exact: child.props.exact,
-        path: child.props.path,
-      });
-    }) || NO_MATCH
-  );
+  const childrenArray = React.Children.toArray(children);
+
+  for (let i = 0; i < childrenArray.length; i++) {
+    const child = childrenArray[i];
+    const matches = matchPath(pathname, {
+      exact: child.props.exact,
+      path: child.props.path,
+    });
+
+    if (matches) {
+      return child;
+    }
+  }
+
+  return NO_MATCH;
 }
 
 let counter = 0;
