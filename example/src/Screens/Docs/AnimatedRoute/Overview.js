@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'glamor';
 
-import Footer from 'Screens/Docs/shared/Footer';
+import Footer from '../shared/Footer';
 
 const Element = ({ name }) => (
   <code>&lt;{name} /&gt;</code>

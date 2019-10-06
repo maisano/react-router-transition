@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'glamor';
 
+import { useHistory, useLocation } from 'react-router-dom';
+
 import LocationInput from './Input';
 
 const topBarRule = css`
@@ -38,44 +40,32 @@ const buttonRule = css`
   }
 `;
 
-const TopBar = (props, { router }) => (
+const TopBar = (props) => {
+  const history = useHistory();
+  const location = useLocation();
+
+  return (
   <div css={topBarRule}>
     <button
       css={buttonRule}
-      disabled={router.history.index === 0}
-      onClick={router.history.goBack}
+      disabled={history.index === 0}
+      onClick={history.goBack}
     >
       &larr;
     </button>
     <button
       css={buttonRule}
-      disabled={router.history.index === router.history.length - 1}
-      onClick={router.history.goForward}
+      disabled={history.index === history.length - 1}
+      onClick={history.goForward}
     >
       &rarr;
     </button>
     <LocationInput
-      pathname={router.route.location.pathname}
-      push={router.history.push}
+      pathname={location.pathname}
+      push={history.push}
     />
   </div>
-);
-
-TopBar.contextTypes = {
-  router: PropTypes.shape({
-    history: PropTypes.shape({
-      index: PropTypes.number,
-      length: PropTypes.number,
-      goBack: PropTypes.func,
-      goForward: PropTypes.func,
-      push: PropTypes.func,
-    }),
-    route: PropTypes.shape({
-      location: PropTypes.shape({
-        pathname: PropTypes.string,
-      }),
-    }),
-  }),
+  )
 };
 
 export default TopBar;

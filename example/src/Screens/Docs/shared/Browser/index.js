@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Router from 'react-router-dom/MemoryRouter';
+import { MemoryRouter as Router } from 'react-router-dom';
 
 import BrowserWrapper from './Wrapper';
 import BrowserTopBar from './TopBar';

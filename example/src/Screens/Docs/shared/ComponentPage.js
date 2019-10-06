@@ -1,12 +1,11 @@
 import React from 'react';
-import Route from 'react-router-dom/Route';
+import { Route } from 'react-router-dom';
 import { css } from 'glamor';
 
 import Page from './Page';
 import PageNav from './PageNav';
 
-import AnimatedSwitch from '../../../../../src/AnimatedSwitch';
-import spring from '../../../../../src/spring';
+import { AnimatedSwitch, spring } from 'react-router-transition';
 
 const switchRule = css`
   position: relative;

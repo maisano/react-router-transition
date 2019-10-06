@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'glamor';
 
-import Footer from 'Screens/Docs/shared/Footer';
+import Footer from '../shared/Footer';
 
 const propTypesRule = css`
   font-size: 1.6rem;

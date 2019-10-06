@@ -1,13 +1,11 @@
 import React from 'react';
-import NavLink from 'react-router-dom/NavLink';
-import Route from 'react-router-dom/Route';
+import { NavLink, Route } from 'react-router-dom';
 import { css } from 'glamor';
 
-import AnimatedSwitch from '../../../../../src/AnimatedSwitch';
-import spring from '../../../../../src/spring';
+import { AnimatedSwitch, spring } from 'react-router-transition';
 
-import Browser from 'Screens/Docs/shared/Browser';
-import Footer from 'Screens/Docs/shared/Footer';
+import Browser from '../shared/Browser';
+import Footer from '../shared/Footer';
 
 const rule = css`
   position: relative;

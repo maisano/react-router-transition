@@ -1,11 +1,11 @@
 import React from 'react';
-import Link from 'react-router-dom/Link';
+import { Link } from 'react-router-dom';
 import { css } from 'glamor';
 
-import AnimatedRoute from '../../../../../src/AnimatedRoute';
+import { AnimatedRoute } from 'react-router-transition';
 
-import Browser from 'Screens/Docs/shared/Browser';
-import Footer from 'Screens/Docs/shared/Footer';
+import Browser from '../shared/Browser';
+import Footer from '../shared/Footer';
 
 const bodyRule = css`
   display: flex;

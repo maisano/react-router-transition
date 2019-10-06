@@ -1,6 +1,5 @@
 import React from 'react';
-import Link from 'react-router-dom/Link';
-import NavLink from 'react-router-dom/NavLink';
+import { Link, NavLink } from 'react-router-dom';
 import { css } from 'glamor';
 
 const rule = css`
