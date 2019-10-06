@@ -1,6 +1,6 @@
 {
   "name": "react-router-transition",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A thin layer over react-motion for animating routes in react-router.",
   "main": "lib/react-router-transition.js",
   "module": "es/index.js",
