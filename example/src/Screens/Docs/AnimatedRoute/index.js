@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ComponentPage from 'Screens/Docs/shared/ComponentPage';
+import ComponentPage from '../shared/ComponentPage';
 
 import Overview from './Overview';
 import Props from '../AnimatedSwitch/Props'; // lolol

@@ -2,8 +2,10 @@
 
 Painless transitions for React Router, powered by React Motion. [Example site](http://maisano.github.io/react-router-transition/).
 
-- v4-first
-- backward-compatible with previous versions of `react-router`
+### Requirements
+
+To use the latest version of this package (`2.x`), you'll need to use a version
+of React compatible with hooks, as well as version `5.x` of `react-router-dom`.
 
 ### Installation
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Footer from 'Screens/Docs/shared/Footer';
+import Footer from '../shared/Footer';
 
 import AnimatedSwitchJS from '!!prismjs-loader?lang=jsx!./example';
 import AnimatedSwitchCSS from '!!prismjs-loader?lang=css!./example.css';

@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from 'react-router-dom/BrowserRouter';
-import Route from 'react-router-dom/Route';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { css } from 'glamor';
 
 import NavBar from './NavBar';
 
-import LandingScreen from 'Screens/Home';
-import DocumentationScreen from 'Screens/Docs';
+import LandingScreen from './Screens/Home';
+import DocumentationScreen from './Screens/Docs';
 
-import AnimatedSwitch from '../../src/AnimatedSwitch';
-import AnimatedRoute from '../../src/AnimatedRoute';
-import spring from '../../src/spring';
+import { AnimatedSwitch, AnimatedRoute, spring } from 'react-router-transition';
 
 import './globals.css';
 import './grayscale-prism-theme.css';

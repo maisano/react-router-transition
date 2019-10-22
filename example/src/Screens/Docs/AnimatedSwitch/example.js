@@ -1,5 +1,5 @@
 import React from 'react';
-import Route from 'react-router-dom/Route';
+import { Route } from 'react-router-dom';
 import { spring, AnimatedSwitch } from 'react-router-transition';
 
 import A from './A';

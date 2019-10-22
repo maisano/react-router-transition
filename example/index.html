@@ -8,6 +8,14 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="text/javascript" src="bundle.js"></script>
+    <script type="text/javascript">
+      var bundle = window.location.hostname === 'maisano.github.io'
+        ? '/react-router-transition/bundle.js'
+        : '/bundle.js';
+
+      const s = document.createElement('script');
+      s.src = bundle;
+      document.head.appendChild(s);
+    </script>
   </body>
 </html>
