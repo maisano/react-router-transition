@@ -127,6 +127,9 @@ function AnimatedRoute({
   component,
   path,
   exact,
+  strict,
+  sensitive,
+  children,
   ...routeTransitionProps
 }) {
   const location = useLocation();
@@ -137,9 +140,12 @@ function AnimatedRoute({
         key={getKey(location, path, exact)}
         path={path}
         exact={exact}
+        strict={strict}
+        sensitive={sensitive}
         location={location}
         component={component}
         render={render}
+        children={children}
       />
     </RouteTransition>
   );
