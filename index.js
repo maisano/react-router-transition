@@ -169,16 +169,21 @@ function getMatchedRoute(children, { pathname }) {
 
   for (let i = 0; i < childrenArray.length; i++) {
     const child = childrenArray[i];
-    const matches = matchPath(pathname, {
-      exact: child.props.exact,
-      path: child.props.path,
-    });
-
+    var matches=null;
+    try{
+      matches = matchPath(pathname, {
+        exact: child.props.exact,
+        path: child.props.path,
+      });
+    }
+    catch(e)
+    {
+      matches=null;
+    }
     if (matches) {
       return child;
     }
   }
-
   return NO_MATCH;
 }
 
