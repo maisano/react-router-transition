@@ -30,11 +30,11 @@
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.0.0"
+    "react-router-dom": "^5.2.0"
   },
   "dependencies": {
-    "prop-types": "^15.7.2",
-    "react-motion": "^0.5.2"
+    "@serprex/react-motion": "github:serprex/react-motion#master",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
