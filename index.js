@@ -10,8 +10,8 @@ import PropTypes from 'prop-types';
 
 import { Route, Switch, matchPath, useLocation } from 'react-router-dom';
 
-import TransitionMotion from 'react-motion/lib/TransitionMotion';
-import spring from 'react-motion/lib/spring';
+import TransitionMotion from '@serprex/react-motion/lib/TransitionMotion';
+import spring from '@serprex/react-motion/lib/spring';
 
 // Helpers
 
