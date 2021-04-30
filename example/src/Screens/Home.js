@@ -86,7 +86,7 @@ export default () => (
       <h1 css={titleRule}>React Router Transition</h1>
       <div css={bodyRule}>
         <span>Painless transitions built for react-router, </span>
-        <span>powered by react-motion</span>
+        <span>powered by @serprex/react-motion</span>
       </div>
       <div css={buttonsRule}>
         <Link css={[buttonRule, primaryButtonRule]} to="/getting-started">
